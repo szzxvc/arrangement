@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.wrangler/
+.dev.vars*
+.env*
+!.dev.vars.example
+test-results/
+playwright-report/
+.test-runtime/
+release/
+*.log

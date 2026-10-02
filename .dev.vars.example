@@ -1,0 +1,4 @@
+# 仅本地开发。不得把这些设置改到生产 vars。
+APP_ENV=development
+SESSION_COOKIE_SECURE=false
+DEV_ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173,http://localhost:8787,http://127.0.0.1:8787

@@ -1,0 +1,51 @@
+{
+  "name": "club-work-checkin",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "npm run build && concurrently -k -n API,WEB \"wrangler dev --port 8787\" \"vite --host 127.0.0.1 --port 5173 --strictPort\"",
+    "dev:worker": "wrangler dev --port 8787",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/test.mjs",
+    "test:browser": "npm run build && playwright test",
+    "check": "npm run typecheck && npm test && npm run build",
+    "db:migrate:local": "wrangler d1 migrations apply club-work-checkin-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply club-work-checkin-db --remote",
+    "deploy": "npm run check && wrangler deploy",
+    "deploy:preview": "npm run build && wrangler deploy --dry-run",
+    "package": "node scripts/package.mjs",
+    "format": "prettier --write src worker shared tests scripts *.ts *.json *.jsonc"
+  },
+  "dependencies": {
+    "hono": "4.13.12",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-router-dom": "7.18.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260722.1",
+    "@playwright/test": "1.58.2",
+    "@types/node": "22.19.15",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.7",
+    "@vitejs/plugin-react": "5.2.0",
+    "archiver": "7.0.1",
+    "concurrently": "9.2.4",
+    "esbuild": "0.28.1",
+    "miniflare": "4.20260722.1",
+    "prettier": "3.9.9",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vitest": "4.1.11",
+    "wrangler": "4.115.0"
+  },
+  "overrides": {
+    "undici": "7.29.1",
+    "sharp": "0.35.4"
+  }
+}
