@@ -31,8 +31,8 @@
   },
   {
     "file": "README.md",
-    "bytes": 9235,
-    "sha256": "2d88ce1e8db5788295f6b8e29e6aa5b59181c5b5a2b9bdcd5c0c303465988788"
+    "bytes": 9680,
+    "sha256": "5ea3eafef4a801e7e25c7c31ad942cec226fb022a8587a0273a9d16d178e9c3d"
   },
   {
     "file": "dist/_headers",
@@ -65,6 +65,11 @@
     "sha256": "f2ba2105effb0e992027d697dde192723c62d7f9aaa6b19a9ad811592c855a83"
   },
   {
+    "file": "docs/Free试部署指南.md",
+    "bytes": 2602,
+    "sha256": "71086b76c9b3fe0a48ed1dd9f720ddda8d342bc35f209d7f1897c0e1c751f3f8"
+  },
+  {
     "file": "docs/Windows部署指南.md",
     "bytes": 13047,
     "sha256": "297309a8727c385446d7dc9bc20db8d91949d427fbd4231dbe62f31bbe1db3e8"
@@ -76,8 +81,8 @@
   },
   {
     "file": "docs/架构说明.md",
-    "bytes": 7568,
-    "sha256": "b9aec2c920d11e5cebfe87c50dd7860abf482902ca246e0bea9efb7d580e43c9"
+    "bytes": 7726,
+    "sha256": "a1d37aefe8f0eba4568e6edef3f45743b710708dfb445b1a2ed2660a4a4dabde"
   },
   {
     "file": "docs/界面预览/手机.png",
@@ -91,8 +96,8 @@
   },
   {
     "file": "docs/验证记录.md",
-    "bytes": 8694,
-    "sha256": "e149aee97086acbf1266eb6cb2860f7bdcf5fc8a1d753d100cea6e0bf46851c5"
+    "bytes": 10474,
+    "sha256": "193b20abacd94ff74482abfe2435396444222b1bfd022c267452640f159fb428"
   },
   {
     "file": "index.html",
@@ -111,8 +116,8 @@
   },
   {
     "file": "package.json",
-    "bytes": 1655,
-    "sha256": "421ea729fc6147c029b0caedfd407836927471bd2db3a6ac5b654909ee384707"
+    "bytes": 1967,
+    "sha256": "7906808653af9de7a1dfcc3de77008b777e0f8952055f81bc7a08682a06e24e8"
   },
   {
     "file": "playwright.config.ts",
@@ -248,6 +253,11 @@
     "file": "worker/index.ts",
     "bytes": 23575,
     "sha256": "86c9e93e03f0b376bb720c146f1402532a5e0ff32b92b64d666c75bc969072fa"
+  },
+  {
+    "file": "wrangler.free.jsonc",
+    "bytes": 752,
+    "sha256": "d8168cd2009d36546826cf6c16268421f3be3283f42e24276abdf1ebc941499f"
   },
   {
     "file": "wrangler.jsonc",

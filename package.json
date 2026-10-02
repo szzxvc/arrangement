@@ -16,8 +16,11 @@
     "check": "npm run typecheck && npm test && npm run build",
     "db:migrate:local": "wrangler d1 migrations apply club-work-checkin-db --local",
     "db:migrate:remote": "wrangler d1 migrations apply club-work-checkin-db --remote",
+    "db:migrate:free:remote": "wrangler d1 migrations apply club-work-checkin-free-db --config wrangler.free.jsonc --remote",
     "deploy": "npm run check && wrangler deploy",
     "deploy:preview": "npm run build && wrangler deploy --dry-run",
+    "deploy:free": "npm run check && wrangler deploy --config wrangler.free.jsonc",
+    "deploy:free:preview": "npm run build && wrangler deploy --config wrangler.free.jsonc --dry-run",
     "package": "node scripts/package.mjs",
     "format": "prettier --write src worker shared tests scripts *.ts *.json *.jsonc"
   },

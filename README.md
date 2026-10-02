@@ -65,6 +65,8 @@ Vitest 通过 Miniflare 启动真实 Workers runtime，加载完整迁移，走�
 
 默认配置以 **Workers Paid** 为部署基线，CPU 上限设置为 30 秒。密码派生保持 `scrypt N=16384, r=8, p=5`；不为免费额度降低强度。未承诺免费套餐可运行。
 
+尝试 Workers Free 请阅读 [Free 试部署指南](docs/Free试部署指南.md)，使用 `wrangler.free.jsonc`。该配置使用单独的 Worker 和 D1 数据库，不设置自定义 CPU 上限。Free 每次请求有 10 毫秒 CPU 限制，现有密码派生可能超限，必须完成云端注册、登录验收后再判断能否使用。
+
 ```powershell
 npx.cmd wrangler login
 npx.cmd wrangler d1 create club-work-checkin-db
@@ -77,7 +79,7 @@ npm.cmd run db:migrate:remote
 npm.cmd run deploy
 ```
 
-详细逐步操作、云端验收、备份、更新和故障排查见 [Windows 部署指南](docs/Windows部署指南.md)。当前交付环境没有 Cloudflare 账号凭据，因此没有执行云端迁移或实际发布；本地成功不代表已经上线。
+详细逐步操作、云端验收、备份、更新和故障排查见 [Windows 部署指南](docs/Windows部署指南.md)。本项目已使用单独的 Free 配置完成云端试部署与功能验收，网址和 CPU 测量见 [验证记录](docs/验证记录.md)；现有认证超过 Free 的标称 CPU 额度，尚未证明免费稳定运行。
 
 ## 配置与密钥
 
@@ -124,7 +126,7 @@ package-lock.json          精确依赖锁文件
 
 项目页每五秒一次快照，单个一直可见的项目页约 720 次 API 请求／小时，认证、权限和快照合计约六条查询／次。D1 按实际读写行计费，成员数、预约数、历史规模和同时打开的页面都会影响成本；这不是固定费用估算。
 
-本地 Workers runtime 已实际运行选定 scrypt 参数。墙钟耗时和环境信息见 [验证记录](docs/验证记录.md)，不等同于云端 CPU 或内存测量。上线后需在 Workers Metrics 查看认证路径的资源消耗和异常，核对账户的 Workers／D1 额度。
+本地 Workers runtime 已实际运行选定 scrypt 参数，云端试部署测得注册／登录 CPU 为 181–194 毫秒。墙钟基准和云端 CPU 分别记录在 [验证记录](docs/验证记录.md)。需继续在 Workers Metrics 查看资源消耗和异常，核对账户的 Workers／D1 额度。
 
 本版适合小社团。快照读取全部项目成员，邀请列表读取本人全部待处理邀请；预约与工作历史分页。审计、工作历史和幂等结果持续保留；大量长期使用需制定容量与留存策略。未提供默认密码账号、生产种子数据或自动清空数据库功能。
 
